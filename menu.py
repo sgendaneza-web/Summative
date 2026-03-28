@@ -1,7 +1,7 @@
 #Displays the menu
 from portfolio import add_portfolio_project, view_portfolio
 from jobs import add_job_oppotunity, view_job_opportunities
-from applications import apply_for_job, view_application
+from application import apply_for_job, view_application
 
 print("===================================================================")
 print("                   MAESTRO_VORTEX                                  ")
