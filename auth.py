@@ -1,4 +1,3 @@
-
 #User Registration and Login (NEW FILE)
 #Handles sign up and login for artists and Hirers.
 from database import the_talents
