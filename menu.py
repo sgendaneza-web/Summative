@@ -1,37 +1,73 @@
-#Displays the menu
-from portfolio import add_portfolio_project, view_portfolio
-from jobs import add_job_oppotunity, view_job_opportunities
-from application import apply_for_job, view_application
+"""
+menu.py - Menu Display and Routing
+Shows different menus for artists and Hirers.
+"""
+from portfolio import add_portfolio_project, view_my_portfolio, view_all_portfolios
+from jobs import add_job_opportunity, view_job_opportunities
+from application import apply_for_job, view_my_applications, view_all_applications
 
-print("===================================================================")
-print("                   MAESTRO_VORTEX                                  ")
-print("===================================================================")
-print(" [1] Add Portfolio")
-print(" [2] View Portfolio")
-print(" [3] Add job opportunity")
-print(" [4] View job opportunities")
-print(" [5] Apply for a job")
-print(" [6] View my applications")
-print(" [7] Exit")
-print("===================================================================")
+ARTIST_MENU = """
+========================================
+         MAESTRO VORTEX — ARTIST
+========================================
+  [1]  Add My Portfolio Project
+  [2]  View My Portfolio
+  [3]  View All Portfolios
+  [4]  View Job Opportunities
+  [5]  Apply for a Job
+  [6]  View My Applications
+  [7]  Exit
+========================================"""
 
+Hirer_MENU = """
+========================================
+         MAESTRO VORTEX — Hirer
+========================================
+  [1]  View All Portfolios
+  [2]  Add Job Opportunity
+  [3]  View Job Opportunities
+  [4]  View All Applications
+  [5]  Exit
+========================================"""
 
-ACTIONS = {
-    "1": add_portfolio_project,
-    "2": view_portfolio,
-    "3": add_job_oppotunity,
-    "4": view_job_opportunities,
-    "5": apply_for_job,
-    "6": view_application,
-}
+def run_menu(user):
+    role = user[4]  # 'artist' or 'hirer'
 
-def run_menu():
     while True:
-        choice = input("Enter choice: ").strip()
-        if choice == "7":
-            print("\nGoodbye! \n")
-            break
-        elif choice in ACTIONS:
-            ACTIONS[choice]()
-        else:
-            print("Invalid choice!")  
+        if role == "hirer":
+            print(Hirer_MENU)
+            choice = input("Enter choice: ").strip()
+            if choice == "1":
+                view_all_portfolios()
+            elif choice == "2":
+                add_job_opportunity(user)
+            elif choice == "3":
+                view_job_opportunities()
+            elif choice == "4":
+                view_all_applications()
+            elif choice == "5":
+                print("\n  Goodbye! Keep creating. 🌟\n")
+                break
+            else:
+                print("  Invalid choice. Enter a number from 1 to 5.")
+
+        else:  # artist
+            print(ARTIST_MENU)
+            choice = input("Enter choice: ").strip()
+            if choice == "1":
+                add_portfolio_project(user)
+            elif choice == "2":
+                view_my_portfolio(user)
+            elif choice == "3":
+                view_all_portfolios()
+            elif choice == "4":
+                view_job_opportunities()
+            elif choice == "5":
+                apply_for_job(user)
+            elif choice == "6":
+                view_my_applications(user)
+            elif choice == "7":
+                print("\n  Goodbye! Keep creating. \n")
+                break
+            else:
+                print("  Invalid choice. Enter a number from 1 to 7.")
