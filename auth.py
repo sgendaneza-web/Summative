@@ -60,3 +60,30 @@ def login():
  
     print(f"\n  Welcome back, {user[1]}!")
     return user
+
+def start():
+    """Show login or register options and return the logged in user."""
+    while True:
+        print("\n========================================")
+        print("        MAESTRO VORTEX - ACCESS")
+        print("========================================")
+        print("  [1] Login")
+        print("  [2] Register")
+        print("  [3] Exit")
+        print("========================================")
+        choice = input("Enter choice: ").strip()
+ 
+        if choice == "1":
+            user = login()
+            if user:
+                return user
+        elif choice == "2":
+            user = register()
+            if user:
+                return user
+        elif choice == "3":
+            print("\n  Goodbye! 🌟\n")
+            exit()
+        else:
+            print("  Invalid choice. Enter 1, 2 or 3.")
+
