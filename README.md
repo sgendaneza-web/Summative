@@ -1,3 +1,5 @@
+                          PROJECT OVERVIEW
+
 Maestro Vortex 🎨
 A command-line platform connecting creative artists with job opportunities.
 Maestro Vortex is a menu-driven Python application with SQLite database integration, built for artists and hirers in the creative industry. Artists can showcase their portfolios and apply for jobs, while hirers can post opportunities and browse applicants.
@@ -34,7 +36,7 @@ How to run the file
 
 Requirements: Python 3.x (no external libraries needed — uses built-in sqlite3 and datetime)
 bash# Clone the repository
-git clone https://github.com/your-username/alu-higher_level_programming.git
+git clone https://github.com/sgendaneza-web/Summative.git
 
 # Navigate to the project folder
 cd maestro-vortex
