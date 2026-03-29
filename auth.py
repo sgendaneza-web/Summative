@@ -1,3 +1,4 @@
+
 #User Registration and Login (NEW FILE)
 #Handles sign up and login for artists and Hirers.
 from database import the_talents
@@ -40,4 +41,22 @@ def register():
     conn.close()
  
     print(f"\n  Welcome to Maestro Vortex, {name}! Account created successfully.")
+    return user 
+     
+def login():
+    print("\n*** LOGIN ***")
+    email    = input("Email    : ").strip()
+    password = input("Password : ").strip()
+ 
+    conn = the_talents()
+    user = conn.execute(
+        "SELECT * FROM users WHERE email = ? AND password = ?", (email, password)
+    ).fetchone()
+    conn.close()
+ 
+    if not user:
+        print("\n  Incorrect email or password. Please try again.")
+        return None
+ 
+    print(f"\n  Welcome back, {user[1]}!")
     return user
