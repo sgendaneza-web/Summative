@@ -39,9 +39,6 @@ Requirement Python 3.x (no external dependencies required, built-in Python 3.x t
 bash# Clone the repository
 git clone -GitHub: sgendaneza-web/Summative.git
 
-# Change to the project dir.
-cd maestro-vortex
-
 # Run the app
 python3 main.py
 
